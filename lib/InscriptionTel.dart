@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:tikodc/DateInscription.dart';
 import 'package:tikodc/InscriptionDate.dart';
 import 'package:tikodc/Profil.dart';
@@ -68,17 +69,30 @@ class _InscriptionTelState extends State<InscriptionTel> {
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 16),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    hintText: 'Numero de telephone',
-                  ),
-                ),
+                child:  InternationalPhoneNumberInput(
+                    onInputChanged: (PhoneNumber number) {
+                      print(number.phoneNumber);
+                    },
+                    onInputValidated: (bool value) {
+                      print(value);
+                    },
+                    selectorConfig: SelectorConfig(
+                      selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                    ),
+                    autoValidateMode: AutovalidateMode.disabled,
+                    selectorTextStyle: TextStyle(color: Colors.black),
+                    inputBorder: const UnderlineInputBorder(
+                        borderSide:
+                        BorderSide(style: BorderStyle.solid, width: 1)),
+                    textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                    )),
               ),
 
               Container(
                 alignment: AlignmentDirectional.topStart,
-                padding: EdgeInsets.only(left: 20, right: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Text('En continuant, tu acceptes les Conditions d’utilisation et reconnais avoir lu '
                     'notre Politique de Confidentialité pour savoir comment nous collectons, utilisons et '
                     'partageons tes données. En savoir plus',
@@ -121,3 +135,5 @@ class _InscriptionTelState extends State<InscriptionTel> {
     );
   }
 }
+
+
