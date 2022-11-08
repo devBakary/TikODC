@@ -23,8 +23,8 @@ class _AccueilState extends State<Accueil> {
   }
 
   final List<Widget> _pages = [
-    const Accueil(),
-    const Profil(),
+    PageAccueil(),
+    Profil(),
 
 
   ];
@@ -32,35 +32,28 @@ class _AccueilState extends State<Accueil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Accueil(),
-      //Menu de navigation du bas
-    bottomNavigationBar: BottomNavigationBar(
-      currentIndex: _selectedIndex,
-      onTap: _navigateBottomBar,
-      backgroundColor: Colors.black,
-      unselectedItemColor: Colors.grey,
-      selectedItemColor: Colors.white,
-      iconSize: 28,
-      selectedFontSize: 18,
-      unselectedFontSize: 16,
+      body: _pages[_selectedIndex],
 
-      //les icons et texts
-      items: const [
-        BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white,),
-            label: 'Accueil',
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _navigateBottomBar,
+        backgroundColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.white,
+        iconSize: 28,
+        selectedFontSize: 18,
+        unselectedFontSize: 16,
+        type: BottomNavigationBarType.fixed,
+        items:  const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home'),
 
-        BottomNavigationBarItem(
-
-            icon: Icon(Icons.person_outline, color: Colors.white,),
-            label: 'profile',
-
-        ),
-      ],
-      type: BottomNavigationBarType.fixed,
-      showSelectedLabels: false,
-    ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profil'),
+        ],
+      ),
     );
   }
 }

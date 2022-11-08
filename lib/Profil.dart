@@ -5,68 +5,6 @@ import 'package:tikodc/DateInscription.dart';
 import 'package:tikodc/InscriptionTel.dart';
 
 
-class Accueil extends StatefulWidget {
-  const Accueil({Key? key}) : super(key: key);
-
-  @override
-  State<Accueil> createState() => _AccueilState();
-}
-
-//state permettant de montrer l'index selectionné
-class _AccueilState extends State<Accueil> {
-  // bottom nav bar
-  int  _selectedIndex = 0;
-  void _navigateBottomBar(int index){
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  final List<Widget> _pages = [
-    const Accueil(),
-    const Profil(),
-
-
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Accueil(),
-      //Menu de navigation du bas
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _navigateBottomBar,
-        backgroundColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.white,
-        iconSize: 28,
-        selectedFontSize: 18,
-        unselectedFontSize: 16,
-
-        //les icons et texts
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white,),
-            label: 'Accueil',
-          ),
-
-          BottomNavigationBarItem(
-
-            icon: Icon(Icons.person_outline, color: Colors.white,),
-            label: 'profile',
-
-          ),
-        ],
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-      ),
-    );
-  }
-}
-
-
-
 class Profil extends StatefulWidget {
   const Profil({Key? key}) : super(key: key);
 

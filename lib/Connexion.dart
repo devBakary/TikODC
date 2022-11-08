@@ -125,7 +125,7 @@ class _ConnexionState extends State<Connexion> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-                    child: ElevatedButton(onPressed: () {  },
+                    child: ElevatedButton(onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (_) => Profil())); },
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white54,
                         elevation: 2,
