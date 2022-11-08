@@ -29,7 +29,7 @@ class _InscriptionPassState extends State<InscriptionPass> {
                         MaterialPageRoute(builder: (_) =>const InscriptionNom(),)
                     )
                   },
-                      icon: Icon(CupertinoIcons.back,
+                      icon: const Icon(CupertinoIcons.back,
                         size: 30,)
                   ),
                   const Text('Inscription', textAlign: TextAlign.center,
@@ -39,7 +39,7 @@ class _InscriptionPassState extends State<InscriptionPass> {
                   ),
 
                   IconButton(onPressed: (){},
-                      icon: Icon(CupertinoIcons.question_circle,
+                      icon: const Icon(CupertinoIcons.question_circle,
                       )
                   )
                 ],
